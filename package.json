@@ -1,0 +1,29 @@
+{
+  "name": "torzo-loger",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TorzoClub/torzo-loger.git"
+  },
+  "author": "Vec",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TorzoClub/torzo-loger/issues"
+  },
+  "homepage": "https://github.com/TorzoClub/torzo-loger#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "mongoose": "^4.6.8",
+    "utility": "^1.9.0",
+    "utils": "^0.3.1"
+  }
+}
