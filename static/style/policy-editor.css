@@ -1,0 +1,44 @@
+.policy-editor {
+
+}
+.policy-editor * {
+	resize: none;
+	outline: none;
+}
+.policy-editor input, .policy-editor textarea {
+	border: 0;
+	background: transparent;
+	padding: 0;
+	margin: 0;
+}
+
+.policy-editor input {
+	display: block;
+	width: 640px;
+
+	font-size: 2em;
+}
+.policy-editor textarea {
+	display: block;
+	width: 640px;
+
+	font-size: 1.5em;
+
+	margin-top: 16px;
+}
+
+.policy-editor .title-area {
+	display: flex;
+	flex-direction: row;
+  justify-content: flex-start;
+}
+
+.policy-editor select {
+	border: 0;
+	border-right: 1px dashed #bbb;
+	margin-right: 0.5em;
+	font-size: 1em;
+}
+
+.policy-editor [name="title"] {
+}

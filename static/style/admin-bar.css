@@ -1,0 +1,30 @@
+/* admin-bar */
+.admin-bar {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+
+	height: 32px;
+	margin-bottom: 64px;
+}
+
+.admin-nav {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+}
+
+.admin-nav * {
+	margin: auto 8px;
+}
+
+.admin-bar .logo {
+	width: 64px;
+}
+
+.admin-bar .user-name {
+	width: 256px;
+	text-align: -webkit-right;
+}
