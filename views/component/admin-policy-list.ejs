@@ -1,0 +1,7 @@
+<ul class="policy-list">
+<% for (let policyItem of policy) { %>
+	<li><a href="/admin/policy/<%= policyItem._id %>"><%= policyItem.title %></a></li>
+<% } %>
+</ul>
+
+<a href="/admin/create_policy">创建政策</a>

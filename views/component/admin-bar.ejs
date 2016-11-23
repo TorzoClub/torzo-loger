@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="/style/admin-bar.css" />
+
+<div class="admin-bar">
+	<div class="logo">logger</div>
+	<nav class="admin-nav">
+    <% if (status === 'policy') { %>
+      <a href="/admin/policy" class="current">政策管理</a>
+  		<a href="/admin/history">历史记录</a>
+    <% } else { %>
+      <a href="/admin/policy">政策管理</a>
+      <a href="/admin/history" class="current">历史记录</a>
+    <% } %>
+	</nav>
+	<div class="user-name"><%= user %></div>
+</div>
