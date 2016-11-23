@@ -1,0 +1,84 @@
+<!doctype HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+  <title>创建政策</title>
+	<link rel="stylesheet" href="/style/policy-editor.css" />
+</head>
+<body>
+  <% include component/admin-bar %>
+	<form class="policy-editor" action="/admin/create_policy" method="post" enctype="application/x-www-form-urlencoded">
+		<div class="title-area">
+			<select name="status">
+				<option value="0">结案</option>
+				<option value="1">草案</option>
+			</select>
+			<input name="title" placeholder="标题" />
+		</div>
+
+		<textarea name="content" placeholder="正文"></textarea>
+		<button type="submit">提交</button>
+	</form>
+	<script>
+	/*
+	textarea自动变长
+	tanks http://www.aa25.cn/code/515.shtml
+	*/
+	var textAreaResize = function (a, row) {
+		var agt = navigator.userAgent.toLowerCase();
+		var is_op = (agt.indexOf("opera") != -1);
+		var is_ie = (agt.indexOf("msie") != -1) && document.all && !is_op;
+		if(!a) {
+			return ;
+		}
+		if(!row) {
+			row = 5;
+		}
+		var b = a.value.split("\n");
+		var c = is_ie ? 1 : 0;
+		c += b.length;
+		var d = a.cols;
+		if(d <= 20) {
+			d = 40;
+		}
+		for(let e = 0; e < b.length; e++) {
+			if(b[e].length >= d) {
+				c += Math.ceil(b[e].length / d)
+			}
+		}
+		c = Math.max(c, row);
+		if(c != a.rows){
+			a.rows = c + 2;
+		} else {
+			a.rows = c + 2;
+		}
+	};
+
+	var textareaAutoHeight = function (textarea) {
+		var tThis = this;
+		var resize = function (e) {
+			textAreaResize(textarea, 8);
+		};
+		[/*'keypress',*/ 'keydown', 'focus', 'click'].forEach(
+			eventName => textarea.addEventListener(eventName, function (e) {
+				setTimeout(resize, 32);
+				return true;
+			}, true)
+		);
+		resize();
+	};
+
+	var policyEditor = document.querySelector('.policy-editor');
+	policyEditor.onsubmit = function () {
+		var status = Number(this.status.value);
+		var status = status ? '草案' : '结案';
+		if (!confirm('你确定要提交这则 ' + status + ' 吗？')) {
+			return false;
+		}
+	};
+	window.onload = function () {
+		textareaAutoHeight(document.querySelector('.policy-editor [name="content"]'));
+	};
+	</script>
+</body>
+</html>

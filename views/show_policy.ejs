@@ -1,0 +1,15 @@
+<!doctype HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+  <title>内殿团管理系统</title>
+</head>
+<body>
+	<% include component/admin-bar %>
+  <% if (policy.length) { %>
+    <% include component/admin-policy-list %>
+  <% } else { %>
+    <% include component/admin-policy-nolist %>
+  <% } %>
+</body>
+</html>
