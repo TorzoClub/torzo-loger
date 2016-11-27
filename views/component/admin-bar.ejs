@@ -1,7 +1,11 @@
 <link rel="stylesheet" href="/style/admin-bar.css" />
 
 <div class="admin-bar">
-	<div class="logo">logger</div>
+	<div class="logo">
+    <embed src="/logger-logo-min.svg" width="128" height="128"
+      type="image/svg+xml"
+      pluginspage="http://www.adobe.com/svg/viewer/install/" />
+  </div>
 	<nav class="admin-nav">
     <% if (status === 'policy') { %>
       <a href="/admin/policy" class="current">政策管理</a>
@@ -11,5 +15,8 @@
       <a href="/admin/history" class="current">历史记录</a>
     <% } %>
 	</nav>
-	<div class="user-name"><%= user %></div>
+  <div class="user-side">
+    <div class="user-name"><%= user %></div>
+    <a class="loginout" href="/admin/loginout">登出</a>
+  </div>
 </div>
