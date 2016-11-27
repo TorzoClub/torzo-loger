@@ -1,0 +1,39 @@
+.policy-list {
+  padding: 0;
+  width: 800px;
+  margin: auto;
+  list-style: none;
+}
+.policy-list li {
+  margin: 16px 0px;
+}
+
+.policy-list .title a {
+  font-size: 2em;
+  text-decoration: blink;
+  color: hsl(201, 47%, 35%);
+}
+
+.policy-list .status {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+.policy-list .status[status="1"] {
+  background: hsl(120, 61.8%, 45%);
+}
+.policy-list .status[status="0"] {
+  background: hsl(201, 47%, 35%);
+}
+
+
+.policy-list .title-bottom {
+  display: flex;
+  font-family: arial, "黑体";
+  font-size: 10px;
+  color: #333;
+}
+
+.title-bottom .author {
+  margin: auto 16px;
+}

@@ -1,6 +1,16 @@
+<link rel="stylesheet" href="/style/admin-policy-list.css" />
 <ul class="policy-list">
 <% for (let policyItem of policy) { %>
-	<li><a href="/admin/policy/<%= policyItem._id %>"><%= policyItem.title %></a></li>
+	<li>
+    <div class="title">
+      <div class="status" status="<%= policyItem.status %>"></div>
+      <a href="/admin/policy/<%= policyItem._id %>"><%= policyItem.title %></a>
+    </div>
+    <div class="title-bottom">
+      <div class="author"><%= policyItem.uper %></div>
+      <time class="create-time"><%= policyItem.date.toISOString() %></time>
+    </div>
+  </li>
 <% } %>
 </ul>
 
