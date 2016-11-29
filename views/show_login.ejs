@@ -1,0 +1,49 @@
+<!doctype HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" charset="utf-8" />
+  <title>torzo-logger admin</title>
+  <script src="/script/md5/md5.min.js" type="application/javascript"></script>
+  <link rel="stylesheet" href="/style/admin-login.css" />
+</head>
+<body>
+  <main>
+    <div class="info"><%= info %></div>
+    <form class="login" action="/admin/login" method="post" enctype="application/x-www-form-urlencoded" >
+      <label id="random" style="display: none"><%= randomString %></label>
+      <input name="user" empty placeholder="用户名"/>
+      <input name="pass" empty type="password" placeholder="密码" />
+      <button type="submit" style="opacity: 0;" >Login</button>
+    </form>
+  </main>
+  <script>
+    var $$ = function (str) {
+      return Array.prototype.slice.call(document.querySelectorAll(str));
+    };
+    var $ = document.querySelector.bind(document);
+
+    $$('form input').forEach(function (inputEle, cursor, inputEles) {
+      inputEle.onblur = function () {
+        if (this.value.length) {
+          this.style.width = '100%';
+        } else {
+          this.style.width = '';
+        }
+      };
+      inputEle.oninput = function () {
+        var result = inputEles.every(function (inputEle) {
+          return inputEle.value.length;
+        });
+
+        $('[type="submit"]').style.opacity = Number(result);
+      };
+    });
+
+    $('.login').onsubmit = function () {
+      var randomString = $('#random').textContent;
+      this.pass.value = (randomString + this.pass.value)
+      this.pass.value = md5(this.pass.value);
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+html, body{
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+  margin: 0;
+}
+
+body, main {
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: space-around;
+  -webkit-align-items: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+main {
+  height: 50%;
+  width: 256px;
+}
+
+main .info {
+  font-size: 18px;
+  font-family: Courier, "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", "黑体";
+  color: hsl(201, 47%, 35%);
+}
+
+form {
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 256px;
+}
+form input:focus {
+  width: 100%;
+  border-color: hsl(201, 47%, 35%);
+}
+form input {
+  outline: none;
+
+  width: 96px;
+  height: 32px;
+
+  margin: 8px 0px;
+
+  font-family: Courier, "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", "黑体";
+  font-size: 24px;
+  text-align: center;
+
+  border: 0;
+  border-left: 2px solid gainsboro;
+  border-right: 2px solid gainsboro;
+
+  transition: width .618s, border-left .382s, border-right .382s;
+}
+
+form button:hover {
+  border: 1px solid hsla(201, 47%, 35%, 1);
+  border-radius: 8px;
+  color: hsla(201, 47%, 35%, 1);
+}
+form button {
+  cursor: pointer;
+
+  width: 64px;
+  height: 24px;
+
+  margin: 12px 0;
+
+  background: transparent;
+
+  border: 1px dotted #bbb;
+  border-radius: 4px;
+
+  font-family: Courier;
+  text-align: center;
+
+  color: hsla(201, 7%, 55%, 1);
+
+  transition: border .618s, border-radius .618s, color .382s, opacity .618s;
+}
