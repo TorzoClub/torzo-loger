@@ -1,0 +1,23 @@
+main {
+  width: 800px;
+  font-size: 1em;
+}
+main .title {
+  font-size: 3em;
+}
+main article {
+  font-size: 1em;
+  font-family: "微软雅黑";
+}
+main pre, main pre code {
+  font-family: Courier, "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", 黑体;
+}
+main pre {
+  font-size: 18px;
+}
+main pre code {
+  width: 800px;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
