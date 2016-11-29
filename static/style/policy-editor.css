@@ -2,42 +2,60 @@
 
 }
 .policy-editor * {
-	resize: none;
-	outline: none;
+  resize: none;
+  outline: none;
 }
 .policy-editor input, .policy-editor textarea {
-	border: 0;
-	background: transparent;
-	padding: 0;
-	margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
 }
 
 .policy-editor input {
-	display: block;
-	width: 640px;
+  display: block;
+  width: 640px;
 
-	font-size: 2em;
+  font-size: 2em;
+}
+.policy-editor .text-frame {
+  position: relative;
+}
+.policy-editor .text-frame > * {
+  width: 640px;
+  min-height: 32px;
+  font-size: 18px;
+  font-family: Courier, "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", 黑体;
+}
+.policy-editor .height-fill {
+  word-wrap: break-word;
+  word-break: break-all;
+  display: block;
+  white-space: pre-wrap;
+  opacity: 0.1;
 }
 .policy-editor textarea {
-	display: block;
-	width: 640px;
-
-	font-size: 1.5em;
-
-	margin-top: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 640px;
+  overflow: hidden;
 }
 
 .policy-editor .title-area {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
   justify-content: flex-start;
 }
 
 .policy-editor select {
-	border: 0;
-	border-right: 1px dashed #bbb;
-	margin-right: 0.5em;
-	font-size: 1em;
+  border: 0;
+  border-right: 1px dashed #bbb;
+  margin-right: 0.5em;
+  font-size: 1em;
+  font-family: Arial, "黑体";
+  color: #555;
 }
 
 .policy-editor [name="title"] {
