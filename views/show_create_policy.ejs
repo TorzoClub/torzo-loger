@@ -35,12 +35,12 @@
       textAreaResize(textarea, fill);
     };
 
-    [/*'keypress',*/ 'keydown', 'focus', 'click'].forEach(
-      eventName => textarea.addEventListener(eventName, function (e) {
+    [/*'keypress',*/ 'keydown', 'focus', 'click'].forEach(function (eventName) {
+      textarea.addEventListener(eventName, function (e) {
         setTimeout(resize, 32);
         return true;
-      }, true)
-    );
+      }, true);
+    });
     resize();
   };
 
