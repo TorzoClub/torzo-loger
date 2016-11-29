@@ -27,12 +27,12 @@ const router = {
     delete req.session.admin;
 
     if (typeof(req.body.user) !== 'string' || typeof(config.admin_users[req.body.user]) !== 'string') {
-      res.render('showlogin', {
+      res.render('show_login', {
         info: '账号/密码 错误',
         randomString: router.setRandomString(req),
       });
     } else if (!auth(req.session.randomString, config.admin_users[req.body.user], req.body.pass || '')) {
-      res.render('showlogin', {
+      res.render('show_login', {
         info: '账号/密码 错误',
         randomString: router.setRandomString(req),
       });
@@ -48,7 +48,7 @@ const router = {
     if (req.session.admin) {
       next();
     } else {
-      res.render('showlogin', {
+      res.render('show_login', {
         info: 'session 可能过期了，或者出了什么问题，请重新登录',
         randomString: router.setRandomString(req),
       });
@@ -62,4 +62,5 @@ const router = {
     }
   },
 };
+
 module.exports = router;
