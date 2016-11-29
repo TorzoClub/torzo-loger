@@ -26,7 +26,7 @@
   var HTMLFilter = document.createElement('div');
   var textAreaResize = function (textarea, fill) {
     fill.innerText = textarea.value;
-    textarea.style.height = (fill.offsetHeight + 32) + 'px';
+    textarea.style.height = fill.offsetHeight + 'px';
   };
 
   var textareaAutoHeight = function (textarea, fill) {
@@ -46,11 +46,7 @@
 
   var policyEditor = document.querySelector('.policy-editor');
   policyEditor.onsubmit = function () {
-    var status = Number(this.status.value);
-    var status = status ? '草案' : '结案';
-    if (!confirm('你确定要提交这则 ' + status + ' 吗？')) {
-      return false;
-    }
+    return confirm('你确定要提交这则草案吗？');
   };
   window.onload = function () {
     textareaAutoHeight(
