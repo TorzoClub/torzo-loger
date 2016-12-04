@@ -6,7 +6,7 @@ html, body{
   margin: 0;
 }
 
-body, main {
+body{
   display: -webkit-flex;
   -webkit-flex-direction: column;
   -webkit-justify-content: space-around;
@@ -19,13 +19,12 @@ body, main {
 }
 
 main {
-  height: 50%;
   width: 256px;
 }
 
 main .info {
   font-size: 18px;
-  font-family: Courier, "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", "黑体";
+  font-family: ISOCPEUR, "Lucida Sans", "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", "黑体";
   color: hsl(201, 47%, 35%);
 }
 
@@ -49,14 +48,15 @@ form input:focus {
 form input {
   outline: none;
 
-  width: 96px;
+  width: 100px;
   height: 32px;
 
   margin: 8px 0px;
 
   font-family: Courier, "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", "黑体";
-  font-size: 24px;
+  font-size: 20px;
   text-align: center;
+  color: hsl(201, 47%, 35%);
 
   border: 0;
   border-left: 2px solid gainsboro;
@@ -65,28 +65,60 @@ form input {
   transition: width .618s, border-left .382s, border-right .382s;
 }
 
-form button:hover {
-  border: 1px solid hsla(201, 47%, 35%, 1);
-  border-radius: 8px;
-  color: hsla(201, 47%, 35%, 1);
+form input::-moz-placeholder {
+	opacity: 1;
+	color: rgba(59, 59, 70, .618);
+	font-family: Courier, "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", "黑体";
+	font-weight: 200;
+	text-shadow: 0px 0px 0px transparent;
 }
-form button {
-  cursor: pointer;
 
-  width: 64px;
-  height: 24px;
+form input::-ms-input-placeholder {
+	opacity: 1;
+	color: rgba(59, 59, 70, .618);
+	font-family: Courier, "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", "黑体";
+	font-weight: 200;
+	text-shadow: 0px 0px 0px transparent;
+}
 
-  margin: 12px 0;
+form input:focus::-webkit-input-placeholder {
+	opacity: 0;
+}
+form input::-webkit-input-placeholder {
+	opacity: 1;
+	color: rgba(59, 59, 70, .618);
+	font-family: Courier, "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", "黑体";
+	font-weight: 200;
+	text-shadow: 0px 0px 0px transparent;
 
-  background: transparent;
+	transition: opacity .382s, transform .618s;
+}
 
-  border: 1px dotted #bbb;
-  border-radius: 4px;
-
-  font-family: Courier;
+main .info, form button {
+  margin: 48px 0;
   text-align: center;
+}
 
-  color: hsla(201, 7%, 55%, 1);
+form button {
+  cursor: no-drop;
+  outline: none;
 
-  transition: border .618s, border-radius .618s, color .382s, opacity .618s;
+  height: 32px;
+  width: 100px;
+
+  border: 0;
+
+  font-size: 18px;
+  font-family: "ISOCTEUR", "Lucida Sans";
+  text-align: center;
+  color: hsla(201,17%,40%,1);
+
+  background: rgb(241, 241, 241);
+
+  transition: background .618s, color .382s;
+}
+button.login-able {
+  background: hsl(201, 47%, 35%);
+  color: white;
+  cursor: pointer;
 }

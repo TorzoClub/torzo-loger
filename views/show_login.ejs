@@ -11,9 +11,9 @@
     <div class="info"><%= info %></div>
     <form class="login" action="/admin/login" method="post" enctype="application/x-www-form-urlencoded" >
       <label id="random" style="display: none"><%= randomString %></label>
-      <input name="user" empty placeholder="用户名"/>
-      <input name="pass" empty type="password" placeholder="密码" />
-      <button type="submit" style="opacity: 0;" >Login</button>
+      <input name="user" empty placeholder="君の名は"/>
+      <input name="pass" empty type="password" placeholder="パス" />
+      <button type="submit">Login</button>
     </form>
   </main>
   <script>
@@ -21,6 +21,18 @@
       return Array.prototype.slice.call(document.querySelectorAll(str));
     };
     var $ = document.querySelector.bind(document);
+    var checkInput = function (inputEles) {
+      var result = inputEles.every(function (inputEle) {
+        return inputEle.value.length;
+      });
+
+      if (result) {
+        $('[type="submit"]').classList.add('login-able');
+      } else {
+        $('[type="submit"]').classList.remove('login-able');
+      }
+      return result;
+    };
 
     $$('form input').forEach(function (inputEle, cursor, inputEles) {
       inputEle.onblur = function () {
@@ -31,18 +43,19 @@
         }
       };
       inputEle.oninput = function () {
-        var result = inputEles.every(function (inputEle) {
-          return inputEle.value.length;
-        });
-
-        $('[type="submit"]').style.opacity = Number(result);
+        checkInput(inputEles);
       };
     });
 
     $('.login').onsubmit = function () {
-      var randomString = $('#random').textContent;
-      this.pass.value = (randomString + this.pass.value)
-      this.pass.value = md5(this.pass.value);
+      if (!checkInput($$('form input'))) {
+        alert('账号/密码 未填写');
+        return true;
+      } else {
+        var randomString = $('#random').textContent;
+        this.pass.value = (randomString + this.pass.value)
+        this.pass.value = md5(this.pass.value);
+      }
     };
   </script>
 </body>
