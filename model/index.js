@@ -13,6 +13,8 @@ mongoose.connect(config.db, {
 
 require('./policy');
 require('./history');
+require('./user');
 
 exports.Policy  = mongoose.model('Policy');
 exports.History = mongoose.model('History');
+exports.User    = mongoose.model('User');

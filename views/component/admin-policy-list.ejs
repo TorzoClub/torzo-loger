@@ -1,17 +1,31 @@
 <link rel="stylesheet" href="/style/admin-policy-list.css" />
+<main>
+<div class="policy-type-nav">
+  <div class="current">Draft</div>
+  <div >Completed</div>
+  <div >Closed</div>
+  <div >All</div>
+</div>
 <ul class="policy-list">
 <% for (let policyItem of policy) { %>
 	<li>
-    <div class="title">
-      <div class="status" status="<%= policyItem.status %>"></div>
-      <a href="/admin/policy/<%= policyItem._id %>"><%= policyItem.title %></a>
+    <div class="progress" title="分子为已投票数，分母为总票数（不包括弃权）">
+      <div class="current">1</div>
+      <hr>
+      <div class="total">4</div>
     </div>
-    <div class="title-bottom">
-      <div class="author"><%= policyItem.uper %></div>
-      <time class="create-time"><%= policyItem.date.toISOString() %></time>
+    <div class="info">
+      <div class="title">
+        <a href="/admin/policy/<%= policyItem._id %>"><%= policyItem.title %></a>
+      </div>
+      <div class="title-bottom">
+        <div class="author"><%= policyItem.uper %></div>
+        <time class="create-time"><%= policyItem.date.toISOString() %></time>
+      </div>
     </div>
   </li>
 <% } %>
 </ul>
 
-<a href="/admin/create_policy">创建政策</a>
+<a class="create-policy" href="/admin/create_policy">创建政策</a>
+</main>

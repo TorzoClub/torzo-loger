@@ -13,10 +13,12 @@
 </head>
 <body>
 	<% include component/admin-bar %>
-  <% if (policy.length) { %>
-    <% include component/admin-policy-list %>
+
+  <% if (users.length) { %>
+    <% include component/admin-user-list %>
   <% } else { %>
-    <% include component/admin-policy-nolist %>
+    <% include component/admin-user-nolist %>
   <% } %>
+
 </body>
 </html>

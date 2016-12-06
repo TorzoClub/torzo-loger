@@ -1,0 +1,76 @@
+<!doctype HTML>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1;" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="HandheldFriendly" content="true" />
+
+  <link rel="stylesheet" href="/style/admin-global.css" />
+  <link rel="stylesheet" href="/style/admin-create.css" />
+  <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+  <title>创建账户</title>
+</head>
+<body>
+	<% include component/admin-bar %>
+  <form action="" method="post" enctype="application/x-www-form-urlencoded">
+    <div class="info"><%= info %></div>
+    <input name="name" type="text" placeholder="用户名" />
+    <input name="pass" type="password" placeholder="密码" />
+    <input name="email" type="email" placeholder="邮箱" />
+    <div class="permission-radio">
+      <label><input type="radio" name="permission" value="100" /><div class="link-button">受限</div></label>
+      <label><input type="radio" name="permission" value="200" /><div class="link-button">管理员</div></label>
+      <label><input type="radio" name="permission" value="300" /><div class="link-button">所有者</div></label>
+      <label><input type="radio" name="permission" value="400" /><div class="link-button">中间人</div></label>
+    </div>
+    <button type="submit">→</button>
+  </form>
+
+  <script>
+  var $$ = function (str) {
+    return Array.prototype.slice.call(document.querySelectorAll(str));
+  };
+  var $ = document.querySelector.bind(document);
+
+  var inputEles = $$('form > input');
+  var radioEles = $$('[name="permission"]');
+
+  var isRadioChecked = function () {
+    return radioEles.some(function (input) { return input.checked });
+  };
+
+  var check = function () {
+    var result = inputEles.every(function (inputEle) {
+      return inputEle.value.length;
+    });
+
+    if (result && isRadioChecked()) {
+      $('[type="submit"]').classList.add('login-able');
+      return true;
+    } else {
+      $('[type="submit"]').classList.remove('login-able');
+      return false;
+    }
+  };
+
+  inputEles.forEach(function (inputEle, cursor) {
+    inputEle.onblur = function () {
+      this.style.width = this.value.length ? '100%' : '';
+    };
+    inputEle.addEventListener('input', check);
+  });
+
+  $$('.permission-radio label').forEach(function (label) {
+    label.addEventListener('click', check);
+  });
+
+  $('form').onsubmit = function () {
+    if (!check()) {
+      alert('存在未填项目');
+      return false;
+    }
+  };
+  </script>
+</body>
+</html>

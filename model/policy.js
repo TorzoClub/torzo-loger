@@ -9,13 +9,14 @@ const Entities = require('html-entities').AllHtmlEntities;
 const entities = new Entities;
 
 /*
-	uper 发起人
+  uper 发起人
   status 政策状态，0 为草案，1 为结案
   title 标题
   content 内容
   type 内容类型，分别是 markdown、html、text
   format 依据 content 格式化后的数据
   date 创建日期
+  censored 审查人员，里面是 uid
   mod 修改日期
   mod_record 修改记录
 */
@@ -27,6 +28,9 @@ const PolicySchema = new Schema({
   type: { type: String, default: 'text' },
   format: { type: String, default: 'no-format' },
   date: { type: Date, default: Date.now },
+
+  censored: [String],
+
   mod: { type: Date, default: Date.now },
   mod_record: [Object],
 });

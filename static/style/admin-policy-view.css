@@ -1,6 +1,7 @@
 main {
   width: 800px;
   font-size: 1em;
+  margin: 32px auto;
 }
 main .title {
   font-size: 3em;

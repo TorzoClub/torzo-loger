@@ -1,8 +1,7 @@
 Object.assign(exports, {
-  db: 'mongodb://localhost/torzo-logger',
+  db: 'mongodb://127.0.0.1/torzo-logger',
   port: 2333,
 
-  admin_users: {
-    'vec': 'asd123',
-  },
+  /* 权限密码 */
+  super_pass: '123',
 });

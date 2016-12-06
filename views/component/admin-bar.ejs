@@ -10,13 +10,19 @@
     <% if (status === 'policy') { %>
       <a href="/admin/policy" class="current">政策管理</a>
   		<a href="/admin/history">历史记录</a>
-    <% } else { %>
+      <a href="/admin/user">用户管理</a>
+    <% } else if (status === 'history') { %>
       <a href="/admin/policy">政策管理</a>
       <a href="/admin/history" class="current">历史记录</a>
+      <a href="/admin/user">用户管理</a>
+    <% } else if (status === 'user') { %>
+      <a href="/admin/policy">政策管理</a>
+      <a href="/admin/history">历史记录</a>
+      <a href="/admin/user" class="current">用户管理</a>
     <% } %>
 	</nav>
   <div class="user-side">
-    <div class="user-name"><%= user %></div>
+    <div class="user-name"><a href="/admin/user/profile/<%= user.name %>"><%= user.name %></a></div>
     <a class="loginout" href="/admin/loginout">登出</a>
   </div>
 </div>

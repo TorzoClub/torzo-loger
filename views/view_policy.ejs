@@ -1,0 +1,16 @@
+<!doctype HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+	<title><%= policy.title %></title>
+</head>
+<body>
+  <% include component/admin-bar %>
+
+  <link rel="stylesheet" href="/style/admin-policy-view.css" />
+  <main>
+    <div class="title"><%= policy.title %></div>
+  	<article><%- policy.format %></article>
+  </main>
+</body>
+</html>

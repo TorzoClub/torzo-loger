@@ -6,17 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="HandheldFriendly" content="true" />
 
-  <link rel="stylesheet" href="/style/admin-global.css" />
-
   <meta http-equiv="content-type" content="text/html" charset="utf-8" />
   <title>内殿团管理系统</title>
 </head>
 <body>
 	<% include component/admin-bar %>
-  <% if (policy.length) { %>
-    <% include component/admin-policy-list %>
-  <% } else { %>
-    <% include component/admin-policy-nolist %>
-  <% } %>
+  <main>
+    <h1>用户名</h1>
+    <p><%= profile.name %></p>
+    <h1>权限</h1>
+    <p><%= profile.permission %></p>
+  </main>
 </body>
 </html>

@@ -25,25 +25,34 @@
   width: 640px;
   min-height: 32px;
   font-size: 18px;
-  font-family: Courier, "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", 黑体;
+  font-family: Courier, "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", "黑体";
 }
 .policy-editor .height-fill {
+  opacity: 0;
+  display: block;
+
   word-wrap: break-word;
   word-break: break-all;
-  display: block;
   white-space: pre-wrap;
-  opacity: 0.1;
+
+  padding: 20px 0;
 }
 .policy-editor textarea {
+  display: block;
+
   position: absolute;
   top: 0;
   left: 0;
-  display: block;
+
   width: 640px;
   overflow: hidden;
 }
 
 .policy-editor .title-area {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: flex-start;
+
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

@@ -1,0 +1,89 @@
+form {
+  display: -webkit-flex;
+  -webkit-justify-content: center;
+  -webkit-align-items: center;
+  -webkit-align-content: center;
+  -webkit-flex-direction: column;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+
+  width: 280px;
+  height: calc(100% - 96px);
+  margin: auto;
+}
+form > * {
+  margin: 8px auto;
+}
+form > input:focus {
+  width: 100%;
+  border-color: hsl(201, 47%, 35%);
+}
+form > input {
+  display: block;
+  margin: auto;
+  outline: none;
+
+  width: 100px;
+  height: 32px;
+
+  margin: 12px 0px;
+
+  font-family: Courier, "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", "黑体";
+  font-size: 20px;
+  text-align: center;
+  color: hsl(201, 47%, 35%);
+
+  border: 0;
+  border-left: 2px solid gainsboro;
+  border-right: 2px solid gainsboro;
+
+  transition: width .618s, border-left .382s, border-right .382s;
+}
+form button {
+  cursor: no-drop;
+  outline: none;
+
+  height: 32px;
+  width: 100px;
+
+  border: 0;
+
+  font-size: 18px;
+  font-family: "微软雅黑", "黑体";
+  text-align: center;
+  color: hsla(201,17%,40%,1);
+
+  background: rgb(241, 241, 241);
+
+  transition: background .618s, color .382s;
+}
+button.login-able {
+  background: hsl(201, 47%, 35%);
+  color: white;
+  cursor: pointer;
+}
+form .info {
+  font-size: 18px;
+  font-family: ISOCPEUR, "Lucida Sans", "Hiragino Sans GB", "Microsoft JhengHei", "WenQuanYi Microhei", "黑体";
+  color: hsl(201, 47%, 35%);
+}
+.permission-radio {
+}
+.permission-radio:before {
+}
+.permission-radio [type="radio"] {
+  display: none;
+}
+.permission-radio [type="radio"]:checked + .link-button {
+  background: hsl(201, 47%, 35%);
+  color: rgb(241, 241, 241);
+}
+.permission-radio > * .link-button {
+  background: rgb(241, 241, 241);
+  color: hsl(201, 47%, 35%);
+  margin: 0;
+}

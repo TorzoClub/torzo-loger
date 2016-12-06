@@ -1,30 +1,66 @@
 /* admin-bar */
 .admin-bar {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
 
-	height: 32px;
-	margin-bottom: 64px;
+  height: 96px;
+  width: 800px;
+
+  margin: auto;
 }
 
 .admin-nav {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	align-content: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
 }
-
+.admin-nav .current {
+  border-left: 8px solid rgb(48, 103, 133);
+  color: rgb(48, 103, 133);
+}
 .admin-nav * {
-	margin: auto 8px;
+  margin: auto 8px;
+  /* border-left: 8px solid rgb(48, 103, 133); */
+  /* border-radius: 8px; */
+  padding-left: .5em;
+  color: #888;
+  text-decoration: blink;
+  font-weight: 100;
+  font-family: "Arial", "黑体";
+}
+.admin-bar .admin-nav, .admin-bar .user-side {
+  padding-bottom: 4px;
+  border-bottom: 1px #bbb solid;
+}
+.admin-bar .user-side {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-family: Arial, "黑体";
+  flex: 1;
+}
+.admin-bar .loginout:hover {
+  color: hsl(120, 61.8%, 45%);
+}
+.admin-bar .loginout {
+  margin: auto 16px;
+  color: #333;
+  text-decoration: blink;
+  transition: color .382s;
 }
 
 .admin-bar .logo {
-	width: 64px;
+
+}
+
+.admin-bar .logo embed {
+    width: 96px;
+    height: 96px;
 }
 
 .admin-bar .user-name {
-	width: 256px;
-	text-align: -webkit-right;
+  text-align: right;
 }

@@ -12,11 +12,8 @@
   <title>内殿团管理系统</title>
 </head>
 <body>
-	<% include component/admin-bar %>
-  <% if (policy.length) { %>
-    <% include component/admin-policy-list %>
-  <% } else { %>
-    <% include component/admin-policy-nolist %>
-  <% } %>
+  <% include component/admin-bar %>
+
+  <main class="infomation">权限不足</main>
 </body>
 </html>
