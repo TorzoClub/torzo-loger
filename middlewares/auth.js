@@ -1,3 +1,4 @@
+const model = require('../model');
 const express = require('express');
 const utils = require('utility');
 const config = require('../config');
@@ -24,28 +25,38 @@ const router = {
 
   },
   login(req, res, next) {
-    delete req.session.admin;
+    delete req.session.user;
 
-    if (typeof(req.body.user) !== 'string' || typeof(config.admin_users[req.body.user]) !== 'string') {
-      res.render('show_login', {
-        info: '账号/密码 错误',
-        randomString: router.setRandomString(req),
-      });
-    } else if (!auth(req.session.randomString, config.admin_users[req.body.user], req.body.pass || '')) {
-      res.render('show_login', {
-        info: '账号/密码 错误',
-        randomString: router.setRandomString(req),
-      });
+    if (req.body.user === 'dever') {
+      if (!auth(req.session.randomString, config.super_pass, req.body.pass || '')) {
+        res.render('show_login', {
+          info: '账号/密码 错误',
+          randomString: router.setRandomString(req),
+        });
+      } else {
+        req.session.user = {
+          name: 'dever',
+          pw: req.body.pass,
+        };
+        res.redirect('/admin');
+      }
     } else {
-      req.session.admin = {
-        user: req.body.user,
-        pw: req.body.pass,
-      };
-      res.redirect('/admin');
+      model.User.findOne()
+        .where('name').equals(req.body.user)
+        .exec(function (err, policy) {
+          if (err) {
+            return res.end('error: ', err);
+          }
+          res.render('show_policy', {
+            status: 'policy',
+            policy,
+            user: req.session.user.name,
+          });
+        });
     }
   },
   checkLogin(req, res, next) {
-    if (req.session.admin) {
+    if (req.session.user) {
       next();
     } else {
       res.render('show_login', {
@@ -55,8 +66,8 @@ const router = {
     }
   },
   loginout(req, res, next) {
-    if (delete req.session.admin) {
-      res.end('已登出');
+    if (delete req.session.user) {
+      res.redirect('/admin');
     } else {
       res.end('登出失败');
     }
